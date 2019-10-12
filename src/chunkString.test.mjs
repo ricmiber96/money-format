@@ -9,7 +9,7 @@ describe("chunk string", () => {
     expect(chunkString("holatu", 3)).toEqual(["hol", "atu"])
   })
 
-  it("handles semi groups", () => {
-    expect(chunkString("eyquetal", 3)).toEqual(["eyq", "uet", "al"])
+  it("handles leading words", () => {
+    expect(chunkString("holatua", 3)).toEqual(["hol", "atu", "a"])
   })
 })

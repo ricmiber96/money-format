@@ -1,4 +1,10 @@
-const secondParamIdentity = (_, i) => i;
+const secondIdentity = (_, i) => i;
+
+const multiplyBy = a => b => a * b
+
+const substrBy = (str, length) => fromIndex => str.substr(fromIndex, length)
+
+const ceilDivision = (newLocal, chunkSize) => Math.ceil(newLocal / chunkSize)
 
 /**
  * Hola
@@ -6,19 +12,11 @@ const secondParamIdentity = (_, i) => i;
  * @param {number} chunkSize 
  */
 export function chunkString(str, chunkSize) {
-  return Array(Math.ceil(str.length / chunkSize))
+  const chunkedStringLength = ceilDivision(str.length, chunkSize);
+
+  return Array(chunkedStringLength)
     .fill(0)
-    .map(secondParamIdentity)
+    .map(secondIdentity)
     .map(multiplyBy(chunkSize))
-    .map(i => substr(str, chunkSize, i))
-}
-
-function substr(str, chunkSize, i) {
-  return str.substr(i, chunkSize);
-}
-
-function multiplyBy(a) {
-  return function(b) {
-    return b * a
-  }
+    .map(substrBy(str, chunkSize))
 }
