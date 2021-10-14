@@ -1,8 +1,12 @@
 import  fs  from "fs";
+import { CsvParse } from './csvParse.js';
 
 const rosFilePath = process.argv[2];
 
 const result = fs.readFileSync(rosFilePath,"utf-8");
+
+const csvObject = new CsvParse()
+csvObject.parse(result)
 
 //console.log(result);
 const str= result.replace(/\n/g,",");
