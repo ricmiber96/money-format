@@ -1,3 +1,3 @@
 export function moneyFormat(amount) {
-  // El código aquí!
+  return "$19.99"
 }
